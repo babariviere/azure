@@ -20,6 +20,8 @@ curl -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"${FEDORA_MAJOR_VERSION}".repo ht
 
 grep -v '^#' /tmp/packages | xargs rpm-ostree install
 
+rpm-ostree override remove opensc
+
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
 

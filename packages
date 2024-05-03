@@ -78,6 +78,7 @@ pamixer
 # shell
 fish
 zsh
+zoxide
 
 # classic dev tools
 gcc
