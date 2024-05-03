@@ -53,7 +53,7 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 COPY --from=ghcr.io/ublue-os/config:latest /files/ublue-os-just /
 COPY --from=ghcr.io/ublue-os/config:latest /files/ublue-os-udev-rules /
 COPY --from=ghcr.io/ublue-os/config:latest /files/ublue-os-update-services /
-COPY --from=ghcr.io/ublue-os/bluefin:latest /usr/share/fish /usr/share/fish
+# COPY --from=ghcr.io/ublue-os/bluefin:latest /usr/share/fish /usr/share/fish
 COPY files /
 COPY build.sh /tmp/build.sh
 COPY packages /tmp/packages
