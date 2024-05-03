@@ -61,6 +61,7 @@ COPY packages /tmp/packages
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     fc-cache --system-only --really-force --verbose && \
+    rm -rf /tmp/* /var/* && \
     mkdir -p /var/tmp && \
     chmod -R 1777 /var/tmp && \
     ostree container commit
