@@ -1,0 +1,84 @@
+# Compositor
+xorg-x11-server-Xwayland
+river
+
+# apps
+foot
+mako
+waybar
+kanshi
+fuzzel
+
+# fonts
+nerd-fonts
+fontawesome-fonts-all
+
+# lock
+swayidle
+swaylock
+
+# utility
+slurp
+grimshot
+wev
+wl-clipboard
+brightnessctl
+wlr-randr
+
+# portal
+xdg-desktop-portal-wlr
+xdg-desktop-portal-gtk
+
+# containers
+docker-ce
+docker-ce-cli
+docker-buildx-plugin
+docker-compose-plugin
+incus
+incus-agent
+podman
+podman-compose
+podman-tui
+podmansh
+
+# emulation
+libvirt
+qemu-char-spice
+qemu-device-display-virtio-gpu
+qemu-device-display-virtio-vga
+qemu-device-usb-redirect
+qemu-img
+qemu-system-x86-core
+qemu-user-binfmt
+qemu-user-static
+qemu
+virt-manager
+virt-viewer
+
+# env
+polkit
+xdg-user-dirs
+dbus-tools
+dbus-daemon
+vulkan-tools
+
+# networking
+network-manager-applet
+bluez
+bluez-tools
+blueman
+tailscale
+wireguard-tools
+
+# sound
+pipewire
+wireplumber
+pamixer
+
+# shell
+fish
+zsh
+
+# classic dev tools
+gcc
+make
