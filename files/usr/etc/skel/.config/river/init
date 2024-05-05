@@ -167,3 +167,7 @@ riverctl attach-mode bottom
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.55 &
+
+riverctl spawn mako
+riverctl spawn kanshi
+riverctl spawn waybar
