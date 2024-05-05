@@ -1,5 +1,6 @@
 app/com.github.tchx84.Flatseal/x86_64/stable
 app/org.mozilla.firefox/x86_64/stable
 app/io.github.dvlv.boxbuddyrs/x86_64/stable
-app/com.discordapp.Discord/stable
-https://downloads.1password.com/linux/flatpak/1Password.flatpakref
+app/com.discordapp.Discord/x86_64/stable
+# TODO:
+# https://downloads.1password.com/linux/flatpak/1Password.flatpakref
