@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
+# TODO: handle multiple remotes, maybe with yaml config?
 REPO_NAME=flathub
 
 # Installed flatpaks
-FLATPAK_LIST=$(flatpak list --user --app --columns=application)
+FLATPAK_LIST=$(flatpak list --app --columns=application)
 
 # Flatpak list files
 INSTALL_LIST_FILE="/usr/share/azure/flatpaks/install"
@@ -22,6 +23,6 @@ if [[ -f $INSTALL_LIST_FILE ]] || [[ -f $USER_INSTALL_LIST_FILE ]]; then
     INSTALL_LIST="$COMBINED_INSTALL_LIST"
   fi
   notify-send "Flatpak Installer" "Started install of user flatpaks" --app-name="Flatpak Installer" -u NORMAL
-  flatpak install --user --noninteractive "$REPO_NAME" ${INSTALL_LIST[@]}
+  flatpak install --noninteractive "$REPO_NAME" ${INSTALL_LIST[@]}
   notify-send "Flatpak Installer" "Finished install of user flatpaks:\n$INSTALL_LIST" --app-name="Flatpak Installer" -u NORMAL
 fi
