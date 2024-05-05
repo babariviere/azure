@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+REPO_NAME=flathub
+
 # Installed flatpaks
 FLATPAK_LIST=$(flatpak list --user --app --columns=application)
 
