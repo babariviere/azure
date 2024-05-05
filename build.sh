@@ -22,6 +22,9 @@ grep -v '^#' /tmp/packages | xargs rpm-ostree install
 
 rpm-ostree override remove opensc
 
+# Installed via flatpak
+rpm-ostree override remove firefox firefox-langpacks
+
 ### Setup flatpaks
 
 mkdir -p /etc/azure/flatpaks
