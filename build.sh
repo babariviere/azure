@@ -25,7 +25,14 @@ rpm-ostree override remove opensc
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
 
+### Setup flatpaks
+
+mkdir -p /etc/azure/flatpaks
+cp /tmp/build/flatpak-setup /usr/bin/flatpak-setup
+cp /tmp/build/flatpak-setup.service /usr/lib/systemd/user/flatpak-setup.service
+
 #### Services
 
 systemctl enable podman.socket
 systemctl enable tailscaled.service
+systemctl enable -f --global flatpak-setup.service

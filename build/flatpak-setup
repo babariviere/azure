@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Installed flatpaks
+FLATPAK_LIST=$(flatpak list --user --app --columns=application)
+
+# Flatpak list files
+INSTALL_LIST_FILE="/usr/share/azure/flatpaks/install"
+USER_INSTALL_LIST_FILE="/etc/azure/flatpaks/install"
+# Prefer user's install + remove list over maintainer's, in case when same flatpak ID is present in maintainer's install list + user's remove list & vice-versa
+# Also ignores words starting with # symbol, whitelines & duplicate entries
+MAINTAINER_INSTALL_LIST=$(sort "$INSTALL_LIST_FILE" | grep -v -E '^#|^$' | awk '!seen[$0]++')
+# Combine maintainer & user list. Ignore words starting with # symbol, whitelines & duplicate entries
+COMBINED_INSTALL_LIST=$(cat <(echo "$MAINTAINER_INSTALL_LIST") "$USER_INSTALL_LIST_FILE" | grep -v -E '^#|^$' | awk '!seen[$0]++')
+
+# Install flatpaks in list
+if [[ -f $INSTALL_LIST_FILE ]] || [[ -f $USER_INSTALL_LIST_FILE ]]; then
+  if [[ -n $FLATPAK_LIST ]]; then
+    INSTALL_LIST=$(comm -23 <(echo "$COMBINED_INSTALL_LIST" | sort) <(echo "$FLATPAK_LIST" | sort))
+  else
+    INSTALL_LIST="$COMBINED_INSTALL_LIST"
+  fi
+  notify-send "Flatpak Installer" "Started install of user flatpaks" --app-name="Flatpak Installer" -u NORMAL
+  flatpak install --user --noninteractive "$REPO_NAME" ${INSTALL_LIST[@]}
+  notify-send "Flatpak Installer" "Finished install of user flatpaks:\n$INSTALL_LIST" --app-name="Flatpak Installer" -u NORMAL
+fi
