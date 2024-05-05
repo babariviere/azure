@@ -22,9 +22,6 @@ grep -v '^#' /tmp/packages | xargs rpm-ostree install
 
 rpm-ostree override remove opensc
 
-# this would install a package from rpmfusion
-# rpm-ostree install vlc
-
 ### Setup flatpaks
 
 mkdir -p /etc/azure/flatpaks
