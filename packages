@@ -60,6 +60,7 @@ polkit
 xdg-user-dirs
 dbus-tools
 dbus-daemon
+libnotify
 vulkan-tools
 
 # networking
@@ -74,6 +75,7 @@ wireguard-tools
 pipewire
 wireplumber
 pamixer
+pavucontrol
 
 # shell
 fish
