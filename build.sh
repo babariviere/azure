@@ -16,6 +16,8 @@ curl -Lo /etc/yum.repos.d/ganto-lxc4-fedora-"${FEDORA_MAJOR_VERSION}".repo https
 
 curl -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"${FEDORA_MAJOR_VERSION}".repo https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_MAJOR_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_MAJOR_VERSION}".repo
 
+curl -Lo /etc/yum.repos.d/_copr_babariviere-tools-"${FEDORA_MAJOR_VERSION}".repo https://copr.fedorainfracloud.org/coprs/babariviere/tools/repo/fedora-"${FEDORA_MAJOR_VERSION}"/babariviere-tools-fedora-"${FEDORA_MAJOR_VERSION}".repo
+
 ### Install packages
 
 grep -v '^#' /tmp/packages | xargs rpm-ostree install
