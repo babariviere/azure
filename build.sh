@@ -35,6 +35,7 @@ cp /tmp/build/flatpak-setup.service /usr/lib/systemd/user/flatpak-setup.service
 
 #### Services
 
+systemctl enable docker.socket
 systemctl enable podman.socket
 systemctl enable tailscaled.service
 systemctl enable -f --global flatpak-setup.service
