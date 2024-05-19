@@ -5,4 +5,6 @@ if [ ! -f ~/.config/distrobox.ini ]; then
     exit 0
 fi
 
+notify-send "Azure Distrobox" "Updating distroboxes" -u NORMAL
 distrobox assemble create --file ~/.config/distrobox.ini
+notify-send "Azure Distrobox" "Finished updating distroboxes" -u NORMAL
