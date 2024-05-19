@@ -27,12 +27,6 @@ rpm-ostree override remove opensc
 # Installed via flatpak
 rpm-ostree override remove firefox firefox-langpacks
 
-### Setup flatpaks
-
-mkdir -p /etc/azure/flatpaks
-cp /tmp/build/flatpak-setup /usr/bin/flatpak-setup
-cp /tmp/build/flatpak-setup.service /usr/lib/systemd/user/flatpak-setup.service
-
 #### Services
 
 systemctl enable docker.socket
@@ -40,6 +34,7 @@ systemctl enable incus.socket
 systemctl enable podman.socket
 systemctl enable tailscaled.service
 systemctl enable -f --global flatpak-setup.service
+systemctl enable -f --global azure-distrobox.service
 
 systemctl enable azure-system-setup.service
 systemctl enable azure-groups.service

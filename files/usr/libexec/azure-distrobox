@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ ! -f ~/.config/distrobox.ini ]; then
+    echo "No distrobox config at ~/.config/distrobox.ini, skipping"
+    exit 0
+fi
+
+distrobox assemble create --file ~/.config/distrobox.ini
