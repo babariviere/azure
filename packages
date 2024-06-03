@@ -83,6 +83,9 @@ fish
 zsh
 zoxide
 
+# python / for topgrade
+python3-pip
+
 # classic dev tools
 gcc
 make

@@ -1,11 +1,11 @@
 [Unit]
-Description=Update distrobox for current user
+Description=Update everything for current user
 Wants=network-online.target
 After=network-online.service
 
 [Service]
 Type=simple
-ExecStart=/usr/libexec/azure-distrobox
+ExecStart=/usr/libexec/azure-topgrade
 Restart=on-failure
 RestartSec=30
 StartLimitInterval=0

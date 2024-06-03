@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+notify-send "Azure" "Running topgrade" -u NORMAL
+topgrade --config /usr/share/azure/topgrade.toml
+notify-send "Azure" "topgrade finished" -u NORMAL

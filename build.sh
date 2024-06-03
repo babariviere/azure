@@ -24,6 +24,10 @@ grep -v '^#' /tmp/packages | xargs rpm-ostree install
 
 rpm-ostree override remove opensc
 
+
+# Install topgrade
+pip install --prefix=/usr topgrade
+
 # Installed via flatpak
 rpm-ostree override remove firefox firefox-langpacks
 
@@ -34,7 +38,7 @@ systemctl enable incus.socket
 systemctl enable podman.socket
 systemctl enable tailscaled.service
 systemctl enable -f --global flatpak-setup.service
-systemctl enable -f --global azure-distrobox.service
+systemctl enable -f --global azure-topgrade.service
 
 systemctl enable azure-system-setup.service
 systemctl enable azure-groups.service
