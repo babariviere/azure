@@ -171,3 +171,6 @@ rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.55 &
 riverctl spawn mako
 riverctl spawn kanshi
 riverctl spawn waybar
+
+systemctl --user import-environment WAYLAND_DISPLAY
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY
