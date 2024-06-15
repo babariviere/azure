@@ -173,4 +173,4 @@ riverctl spawn kanshi
 riverctl spawn waybar
 
 systemctl --user import-environment WAYLAND_DISPLAY
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
