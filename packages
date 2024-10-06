@@ -4,7 +4,7 @@ river
 
 # apps
 foot
-wezterm
+https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora40.rpm
 mako
 waybar
 kanshi
@@ -36,8 +36,8 @@ docker-ce
 docker-ce-cli
 docker-buildx-plugin
 docker-compose-plugin
-incus
-incus-agent
+# incus
+# incus-agent
 podman
 podman-compose
 podman-tui
