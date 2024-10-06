@@ -4,7 +4,6 @@ river
 
 # apps
 foot
-https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora40.rpm
 mako
 waybar
 kanshi
