@@ -38,23 +38,21 @@ docker-compose-plugin
 # incus
 # incus-agent
 podman
-podman-compose
 podman-tui
-podmansh
 
-# emulation
-libvirt
-qemu-char-spice
-qemu-device-display-virtio-gpu
-qemu-device-display-virtio-vga
-qemu-device-usb-redirect
-qemu-img
-qemu-system-x86-core
-qemu-user-binfmt
-qemu-user-static
-qemu
-virt-manager
-virt-viewer
+# # emulation
+# libvirt
+# qemu-char-spice
+# qemu-device-display-virtio-gpu
+# qemu-device-display-virtio-vga
+# qemu-device-usb-redirect
+# qemu-img
+# qemu-system-x86-core
+# qemu-user-binfmt
+# qemu-user-static
+# qemu
+# virt-manager
+# virt-viewer
 
 # env
 polkit
@@ -79,8 +77,6 @@ pamixer
 pavucontrol
 
 # shell
-fish
-zsh
 zoxide
 elvish
 
