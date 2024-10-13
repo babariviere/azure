@@ -9,7 +9,9 @@ waybar
 kanshi
 fuzzel
 
+# Fingerprint
 fprintd
+fprintd-pam
 
 # fonts
 nerd-fonts
