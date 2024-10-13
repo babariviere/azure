@@ -9,6 +9,8 @@ waybar
 kanshi
 fuzzel
 
+fprintd
+
 # fonts
 nerd-fonts
 fontawesome-fonts-all
