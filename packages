@@ -36,12 +36,13 @@ xdg-desktop-portal-gtk
 
 # containers
 # docker-ce
-docker-ce-cli
+# docker-ce-cli
 docker-buildx-plugin
 docker-compose-plugin
 # incus
 # incus-agent
 podman
+podman-docker
 podman-tui
 
 # # emulation
