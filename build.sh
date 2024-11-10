@@ -7,16 +7,16 @@ RELEASE="$(rpm -E %fedora)"
 ### Add repos
 
 # Add Staging repo
-curl -Lo /etc/yum.repos.d/ublue-os-staging-fedora-"${FEDORA_MAJOR_VERSION}".repo https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-"${FEDORA_MAJOR_VERSION}"/ublue-os-staging-fedora-"${FEDORA_MAJOR_VERSION}".repo
+curl -Lo /etc/yum.repos.d/ublue-os-staging-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-"${RELEASE}"/ublue-os-staging-fedora-"${RELEASE}".repo
 
 # Add Bling repo
-curl -Lo /etc/yum.repos.d/ublue-os-bling-fedora-"${FEDORA_MAJOR_VERSION}".repo https://copr.fedorainfracloud.org/coprs/ublue-os/bling/repo/fedora-"${FEDORA_MAJOR_VERSION}"/ublue-os-bling-fedora-"${FEDORA_MAJOR_VERSION}".repo
+curl -Lo /etc/yum.repos.d/ublue-os-bling-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ublue-os/bling/repo/fedora-"${RELEASE}"/ublue-os-bling-fedora-"${RELEASE}".repo
 
-curl -Lo /etc/yum.repos.d/ganto-lxc4-fedora-"${FEDORA_MAJOR_VERSION}".repo https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-"${FEDORA_MAJOR_VERSION}"/ganto-lxc4-fedora-"${FEDORA_MAJOR_VERSION}".repo
+curl -Lo /etc/yum.repos.d/ganto-lxc4-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-"${RELEASE}"/ganto-lxc4-fedora-"${RELEASE}".repo
 
-curl -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"${FEDORA_MAJOR_VERSION}".repo https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_MAJOR_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_MAJOR_VERSION}".repo
+curl -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${RELEASE}"/che-nerd-fonts-fedora-"${RELEASE}".repo
 
-curl -Lo /etc/yum.repos.d/_copr_babariviere-tools-"${FEDORA_MAJOR_VERSION}".repo https://copr.fedorainfracloud.org/coprs/babariviere/tools/repo/fedora-"${FEDORA_MAJOR_VERSION}"/babariviere-tools-fedora-"${FEDORA_MAJOR_VERSION}".repo
+curl -Lo /etc/yum.repos.d/_copr_babariviere-tools-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/babariviere/tools/repo/fedora-"${RELEASE}"/babariviere-tools-fedora-"${RELEASE}".repo
 
 curl https://downloads.1password.com/linux/keys/1password.asc | tee /etc/pki/rpm-gpg/1password.gpg
 
