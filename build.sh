@@ -44,13 +44,35 @@ pip install --prefix=/usr topgrade
 # Installed via flatpak
 rpm-ostree override remove firefox firefox-langpacks
 
+#### Quadlets
+
+curl -Lo /etc/containers/systemd/users/azure-cli.container https://raw.githubusercontent.com/babariviere/toolboxes/main/quadlets/azure-cli/azure-cli.container
+sed -i 's/ContainerName=azure/ContainerName=azure-cli/' /etc/containers/systemd/users/azure-cli.container
+
+# Make systemd targets
+mkdir -p /usr/lib/systemd/user
+QUADLET_TARGETS=(
+  "azure-cli"
+)
+for i in "${QUADLET_TARGETS[@]}"
+do
+cat > "/usr/lib/systemd/user/${i}.target" <<EOF
+[Unit]
+Description=${i}"target for ${i} quadlet
+
+[Install]
+WantedBy=default.target
+EOF
+
 #### Services
 
 # systemctl enable docker.socket
 systemctl enable podman.socket
-systemctl enable tailscaled.service
+systemctl enable podman-auto-update.service
+# systemctl enable tailscaled.service
 systemctl enable -f --global flatpak-setup.service
 systemctl enable -f --global azure-topgrade.service
+systemctl enable -f --global azure-cli.container
 
 systemctl enable azure-system-setup.service
 systemctl enable azure-groups.service
