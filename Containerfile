@@ -4,7 +4,7 @@
 # Build args can be provided on the commandline when building locally with:
 #   podman build -f Containerfile --build-arg FEDORA_MAJOR_VERSION=40 -t local-image
 
-ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-40}"
+ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-41}"
 
 # SOURCE_IMAGE arg can be anything from ublue upstream which matches your desired version:
 # See list here: https://github.com/orgs/ublue-os/packages?repo_name=main
@@ -35,7 +35,7 @@ ARG SOURCE_IMAGE="base"
 # - stable-zfs
 # - stable-nvidia-zfs
 # - (and the above with testing rather than stable)
-ARG SOURCE_SUFFIX="-main"
+ARG SOURCE_SUFFIX="-stable"
 
 ## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, latest
 ARG SOURCE_TAG="${FEDORA_MAJOR_VERSION}"
