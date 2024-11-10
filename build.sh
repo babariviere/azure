@@ -68,7 +68,7 @@ EOF
 
 # systemctl enable docker.socket
 systemctl enable podman.socket
-systemctl enable podman-auto-update.service
+systemctl enable podman-auto-update.timer
 # systemctl enable tailscaled.service
 systemctl enable -f --global flatpak-setup.service
 systemctl enable -f --global azure-topgrade.service
