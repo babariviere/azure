@@ -22,7 +22,7 @@ curl https://downloads.1password.com/linux/keys/1password.asc | tee /etc/pki/rpm
 
 ### Install 1password using blue-build script
 
-wget -O 1password.sh https://raw.githubusercontent.com/blue-build/modules/22fe11d844763bf30bd83028970b975676fe7beb/modules/bling/installers/1password.sh
+curl -Lo 1password.sh https://raw.githubusercontent.com/blue-build/modules/22fe11d844763bf30bd83028970b975676fe7beb/modules/bling/installers/1password.sh
 
 chmod +x 1password.sh
 bash ./1password.sh
@@ -37,7 +37,6 @@ rpm-ostree install 1password
 
 rpm-ostree override remove opensc
 
-
 # Install topgrade
 pip install --prefix=/usr topgrade
 
@@ -46,6 +45,7 @@ rpm-ostree override remove firefox firefox-langpacks
 
 #### Quadlets
 
+mkdir -p /etc/containers/systemd/users
 curl -Lo /etc/containers/systemd/users/azure-cli.container https://raw.githubusercontent.com/babariviere/toolboxes/main/quadlets/azure-cli/azure-cli.container
 sed -i 's/ContainerName=azure/ContainerName=azure-cli/' /etc/containers/systemd/users/azure-cli.container
 
@@ -54,8 +54,7 @@ mkdir -p /usr/lib/systemd/user
 QUADLET_TARGETS=(
   "azure-cli"
 )
-for i in "${QUADLET_TARGETS[@]}"
-do
+for i in "${QUADLET_TARGETS[@]}"; do
 cat > "/usr/lib/systemd/user/${i}.target" <<EOF
 [Unit]
 Description=${i}"target for ${i} quadlet
@@ -63,6 +62,7 @@ Description=${i}"target for ${i} quadlet
 [Install]
 WantedBy=default.target
 EOF
+done
 
 #### Services
 
@@ -72,7 +72,7 @@ systemctl enable podman-auto-update.timer
 # systemctl enable tailscaled.service
 systemctl enable -f --global flatpak-setup.service
 systemctl enable -f --global azure-topgrade.service
-systemctl enable -f --global azure-cli.container
+systemctl enable -f --global azure-cli.target
 
 systemctl enable azure-system-setup.service
 systemctl enable azure-groups.service
