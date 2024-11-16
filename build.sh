@@ -35,8 +35,6 @@ grep -v '^#' /tmp/packages | xargs rpm-ostree install
 
 rpm-ostree install 1password
 
-rpm-ostree override remove opensc
-
 # Install topgrade
 pip install --prefix=/usr topgrade
 
