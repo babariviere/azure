@@ -16,8 +16,6 @@ curl -Lo /etc/yum.repos.d/ganto-lxc4-fedora-"${RELEASE}".repo https://copr.fedor
 
 curl -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${RELEASE}"/che-nerd-fonts-fedora-"${RELEASE}".repo
 
-curl -Lo /etc/yum.repos.d/_copr_babariviere-tools-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/babariviere/tools/repo/fedora-"${RELEASE}"/babariviere-tools-fedora-"${RELEASE}".repo
-
 curl https://downloads.1password.com/linux/keys/1password.asc | tee /etc/pki/rpm-gpg/1password.gpg
 
 ### Install 1password using blue-build script

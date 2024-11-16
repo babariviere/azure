@@ -10,8 +10,6 @@ kanshi
 fuzzel
 
 # Fingerprint
-fprintd
-fprintd-pam
 
 # fonts
 nerd-fonts
@@ -28,7 +26,6 @@ wev
 wl-clipboard
 brightnessctl
 wlr-randr
-wayprompt
 
 # portal
 xdg-desktop-portal-wlr
@@ -91,3 +88,5 @@ python3-pip
 # classic dev tools
 gcc
 make
+openssh
+openssh-askpass
