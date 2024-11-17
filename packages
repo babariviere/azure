@@ -1,6 +1,6 @@
 # Compositor
 xorg-x11-server-Xwayland
-river
+niri
 
 # apps
 foot
@@ -8,16 +8,13 @@ mako
 waybar
 kanshi
 fuzzel
-
-# Fingerprint
+swaybg
+swayidle
+swaylock
 
 # fonts
 nerd-fonts
 fontawesome-fonts-all
-
-# lock
-swayidle
-swaylock
 
 # utility
 slurp

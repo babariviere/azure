@@ -6,6 +6,9 @@ RELEASE="$(rpm -E %fedora)"
 
 ### Add repos
 
+# Add niri repo
+curl -Lo /etc/yum.repos.d/yalter-niri-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-"${RELEASE}"/yalter-niri-fedora-"${RELEASE}".repo
+
 # Add Staging repo
 curl -Lo /etc/yum.repos.d/ublue-os-staging-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-"${RELEASE}"/ublue-os-staging-fedora-"${RELEASE}".repo
 
@@ -60,12 +63,23 @@ WantedBy=default.target
 EOF
 done
 
+#### Setup niri deps
+
+mkdir /usr/lib/systemd/user/niri.service.wants
+ln -s /usr/lib/systemd/user/mako.service /usr/lib/systemd/user/niri.service.wants/
+ln -s /usr/lib/systemd/user/waybar.service /usr/lib/systemd/user/niri.service.wants/
+ln -s /usr/lib/systemd/user/swayidle.service /usr/lib/systemd/user/niri.service.wants/
+ln -s /usr/lib/systemd/user/kanshi.service /usr/lib/systemd/user/niri.service.wants/
+
 #### Services
 
 # systemctl enable docker.socket
 systemctl enable podman.socket
 systemctl enable podman-auto-update.timer
 # systemctl enable tailscaled.service
+
+systemctl enable -f --global niri.service
+
 systemctl enable -f --global flatpak-setup.service
 systemctl enable -f --global azure-topgrade.service
 systemctl enable -f --global azure-cli.target
