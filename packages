@@ -1,6 +1,7 @@
 # Compositor
 xorg-x11-server-Xwayland
 greetd
+greetd-selinux
 niri
 
 # apps

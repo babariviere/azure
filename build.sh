@@ -56,13 +56,13 @@ QUADLET_TARGETS=(
 for i in "${QUADLET_TARGETS[@]}"; do
     cat > "/usr/lib/systemd/user/${i}.target" <<EOF
 [Unit]
-Description=${i}"target for ${i} quadlet
+Description="target for ${i} quadlet
 
 [Install]
 WantedBy=default.target
 EOF
-    mkdir "/usr/lib/systemd/user/${i}.target.wants"
-    ln -s /etc/containers/systemd/users/azure-cli.container "/usr/lib/systemd/user/${i}.target.wants/"
+
+    printf "\n\n[Install]\nWantedBy=%s.target" "$i" >> /etc/containers/systemd/users/"$i".container
 done
 
 #### Setup niri deps
@@ -81,7 +81,6 @@ systemctl enable greetd.service
 
 systemctl enable -f --global flatpak-setup.service
 systemctl enable -f --global azure-topgrade.service
-systemctl enable -f --global azure-cli.target
 
 systemctl enable azure-system-setup.service
 systemctl enable azure-groups.service
