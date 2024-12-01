@@ -42,6 +42,14 @@ pip install --prefix=/usr topgrade
 # Installed via flatpak
 rpm-ostree override remove firefox firefox-langpacks
 
+#### os-release
+
+sed -i '/fedoraproject.org/d' /usr/lib/os-release
+sed -i 's/Fedora Linux/Azure/g' /usr/lib/os-release
+sed -i 's/fedoraproject/babariviere/g' /usr/lib/os-release
+sed -i 's/fedora/azure/g' /usr/lib/os-release
+sed -i '/REDHAT/d' /usr/lib/os-release
+
 #### Quadlets
 
 mkdir -p /etc/containers/systemd/users
