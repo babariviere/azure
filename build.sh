@@ -54,13 +54,15 @@ QUADLET_TARGETS=(
   "azure-cli"
 )
 for i in "${QUADLET_TARGETS[@]}"; do
-cat > "/usr/lib/systemd/user/${i}.target" <<EOF
+    cat > "/usr/lib/systemd/user/${i}.target" <<EOF
 [Unit]
 Description=${i}"target for ${i} quadlet
 
 [Install]
 WantedBy=default.target
 EOF
+    mkdir "/usr/lib/systemd/user/${i}.target.wants"
+    ln -s /etc/containers/systemd/users/azure-cli.container "/usr/lib/systemd/user/${i}.target.wants/"
 done
 
 #### Setup niri deps
@@ -73,12 +75,9 @@ ln -s /usr/lib/systemd/user/kanshi.service /usr/lib/systemd/user/niri.service.wa
 
 #### Services
 
-# systemctl enable docker.socket
 systemctl enable podman.socket
 systemctl enable podman-auto-update.timer
-# systemctl enable tailscaled.service
-
-systemctl enable -f --global niri.service
+systemctl enable greetd.service
 
 systemctl enable -f --global flatpak-setup.service
 systemctl enable -f --global azure-topgrade.service

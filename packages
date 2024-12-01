@@ -1,5 +1,6 @@
 # Compositor
 xorg-x11-server-Xwayland
+greetd
 niri
 
 # apps
