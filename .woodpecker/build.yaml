@@ -1,0 +1,19 @@
+when:
+  - event: push
+    branch: main
+  - event: cron
+    cron: build_image
+
+steps:
+  - name: build
+    image: quay.io/containers/buildah:v1.38.0
+    environment:
+      FEDORA_MAJOR_VERSION: latest
+      IMAGE_NAME: forge.babariviere.com/babariviere/azure
+      PACKAGE_TOKEN:
+        from_secret: package_token
+    privileged: true
+    commands:
+      - echo "$PACKAGE_TOKEN" | buildah login forge.babariviere.com --username babariviere --password-stdin
+      - buildah build --label org.opencontainers.image.source=https://$IMAGE_NAME -t $IMAGE_NAME:latest -t $IMAGE_NAME:$(date -u +%Y%m%d) .
+      - buildah push --all $IMAGE_NAME docker://$IMAGE_NAME
