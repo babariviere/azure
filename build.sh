@@ -87,6 +87,8 @@ systemctl enable podman.socket
 systemctl enable podman-auto-update.timer
 systemctl enable greetd.service
 
+systemctl enable tlp.service
+
 systemctl enable -f --global flatpak-setup.service
 systemctl enable -f --global azure-topgrade.service
 
