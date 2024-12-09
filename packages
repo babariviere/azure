@@ -72,6 +72,9 @@ blueman
 tailscale
 wireguard-tools
 
+# power
+tlp
+
 # sound
 pipewire
 wireplumber
