@@ -15,5 +15,10 @@ steps:
     privileged: true
     commands:
       - echo "$PACKAGE_TOKEN" | buildah login forge.babariviere.com --username babariviere --password-stdin
-      - buildah build --label org.opencontainers.image.source=https://$IMAGE_NAME -t $IMAGE_NAME:latest -t $IMAGE_NAME:$(date -u +%Y%m%d) .
+      - >-
+        buildah build
+          --cache-from docker://$IMAGE_NAME/cache
+          --cache-to docker://$IMAGE_NAME/cache
+          --label org.opencontainers.image.source=https://$IMAGE_NAME
+          -t $IMAGE_NAME:latest -t $IMAGE_NAME:$(date -u +%Y%m%d) .
       - buildah push --all $IMAGE_NAME docker://$IMAGE_NAME
