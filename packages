@@ -41,6 +41,7 @@ docker-compose-plugin
 podman
 podman-docker
 podman-tui
+devpod
 
 # # emulation
 # libvirt
