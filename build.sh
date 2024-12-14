@@ -73,6 +73,10 @@ EOF
     printf "\n\n[Install]\nWantedBy=%s.target" "$i" >> /etc/containers/systemd/users/"$i".container
 done
 
+#### Setup devpod
+
+ln -s /usr/bin/devpod-cli /usr/bin/devpod
+
 #### Setup niri deps
 
 mkdir /usr/lib/systemd/user/niri.service.wants
