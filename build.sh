@@ -90,6 +90,7 @@ ln -s /usr/lib/systemd/user/kanshi.service /usr/lib/systemd/user/niri.service.wa
 #### Services
 
 systemctl enable podman.socket
+systemctl enable -f --global podman.socket
 systemctl enable podman-auto-update.timer
 systemctl enable greetd.service
 
