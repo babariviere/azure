@@ -98,6 +98,7 @@ systemctl enable tlp.service
 
 systemctl enable -f --global flatpak-setup.service
 systemctl enable -f --global azure-topgrade.service
+systemctl enable -f --global syncthing.service
 
 systemctl enable azure-system-setup.service
 systemctl enable azure-groups.service
