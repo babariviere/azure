@@ -38,6 +38,16 @@ bash ./1password.sh
 
 rm 1password.sh
 
+### Fix for packages that install into /opt
+
+mkdir -p /var/opt
+ln -sf /var/opt /opt
+
+mkdir -p /usr/lib/opt/zen
+ln -sf /usr/lib/opt/zen /var/opt/zen
+
+systemctl enable azure-optfix
+
 ### Install packages
 
 grep -v '^#' /tmp/packages | xargs rpm-ostree install
