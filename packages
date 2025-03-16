@@ -5,6 +5,9 @@ greetd-selinux
 tuigreet
 niri
 
+# auth
+fprintd-pam
+
 # apps
 emacs
 foot
