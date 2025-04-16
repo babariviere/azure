@@ -23,8 +23,6 @@ curl -Lo /etc/yum.repos.d/_copr_pgdev-ghostty-"${RELEASE}".repo https://copr.fed
 
 curl -Lo /etc/yum.repos.d/_copr_alternateved-bleeding-emacs-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/alternateved/bleeding-emacs/repo/fedora-"${RELEASE}"/alternateved-bleeding-emacs-fedora-"${RELEASE}".repo
 
-curl -Lo /etc/yum.repos.d/_copr-sneexy-zen-browser-"${RELEASE}".repo  https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-"${RELEASE}"/sneexy-zen-browsder-fedora-"${RELEASE}".repo
-
 curl -Lo /etc/yum.repos.d/_copr-ulysg-xwayland-satellite-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ulysg/xwayland-satellite/repo/fedora-"${RELEASE}"/ulysg-xwayland-satellite-fedora-"${RELEASE}".repo
 
 curl https://downloads.1password.com/linux/keys/1password.asc | tee /etc/pki/rpm-gpg/1password.gpg
@@ -37,16 +35,6 @@ chmod +x 1password.sh
 bash ./1password.sh
 
 rm 1password.sh
-
-### Fix for packages that install into /opt
-
-mkdir -p /var/opt
-ln -sf /var/opt /opt
-
-mkdir -p /usr/lib/opt/zen
-ln -sf /usr/lib/opt/zen /var/opt/zen
-
-systemctl enable azure-optfix
 
 ### Install packages
 
