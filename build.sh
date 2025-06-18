@@ -2,8 +2,6 @@
 
 set -ouex pipefail
 
-RELEASE="$(rpm -E %fedora)"
-
 ### Add repos
 
 # Add niri repo
@@ -47,11 +45,7 @@ pip install --prefix=/usr topgrade
 
 #### os-release
 
-sed -i '/fedoraproject.org/d' /usr/lib/os-release
-sed -i 's/Fedora Linux/Azure/g' /usr/lib/os-release
-sed -i 's/fedoraproject/babariviere/g' /usr/lib/os-release
-sed -i 's/fedora/azure/g' /usr/lib/os-release
-sed -i '/REDHAT/d' /usr/lib/os-release
+echo "VARIANT=Azure" && echo "VARIANT_ID=com.babariviere.azure" >> /usr/lib/os-release
 
 #### Quadlets
 
