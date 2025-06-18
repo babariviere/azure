@@ -119,3 +119,5 @@ dnf5 -y copr disable ulysg/xwayland-satellite
 curl https://downloads.1password.com/linux/keys/1password.asc | tee /etc/pki/rpm-gpg/1password.gpg
 
 dnf5 -y copr disable gmaglione/podman-bootc
+
+rm -rf /var/log
