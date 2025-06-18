@@ -7,25 +7,27 @@ RELEASE="$(rpm -E %fedora)"
 ### Add repos
 
 # Add niri repo
-curl -Lo /etc/yum.repos.d/yalter-niri-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-"${RELEASE}"/yalter-niri-fedora-"${RELEASE}".repo
+dnf5 -y copr enable yalter/niri
 
 # Add Staging repo
-curl -Lo /etc/yum.repos.d/ublue-os-staging-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-"${RELEASE}"/ublue-os-staging-fedora-"${RELEASE}".repo
+dnf5 -y copr enable ublue-os/staging
 
 # Add Bling repo
-curl -Lo /etc/yum.repos.d/ublue-os-bling-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ublue-os/bling/repo/fedora-"${RELEASE}"/ublue-os-bling-fedora-"${RELEASE}".repo
+dnf5 -y copr enable ublue-os/bling
 
-curl -Lo /etc/yum.repos.d/ganto-lxc4-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-"${RELEASE}"/ganto-lxc4-fedora-"${RELEASE}".repo
+dnf5 -y copr enable ganto/lxc4
 
-curl -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${RELEASE}"/che-nerd-fonts-fedora-"${RELEASE}".repo
+dnf5 -y copr enable che/nerd-fonts
 
-curl -Lo /etc/yum.repos.d/_copr_pgdev-ghostty-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/pgdev/ghostty/repo/fedora-"${RELEASE}"/pgdev-ghostty-fedora-"${RELEASE}".repo
+dnf5 -y copr enable pgdev/ghostty
 
-curl -Lo /etc/yum.repos.d/_copr_alternateved-bleeding-emacs-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/alternateved/bleeding-emacs/repo/fedora-"${RELEASE}"/alternateved-bleeding-emacs-fedora-"${RELEASE}".repo
+dnf5 -y copr enable alternateved/bleeding-emacs
 
-curl -Lo /etc/yum.repos.d/_copr-ulysg-xwayland-satellite-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/ulysg/xwayland-satellite/repo/fedora-"${RELEASE}"/ulysg-xwayland-satellite-fedora-"${RELEASE}".repo
+dnf5 -y copr enable ulysg/xwayland-satellite
 
 curl https://downloads.1password.com/linux/keys/1password.asc | tee /etc/pki/rpm-gpg/1password.gpg
+
+dnf5 -y copr enable gmaglione/podman-bootc
 
 ### Install 1password using blue-build script
 
@@ -38,13 +40,10 @@ rm 1password.sh
 
 ### Install packages
 
-grep -v '^#' /tmp/packages | xargs rpm-ostree install
+grep -v '^#' /tmp/packages | xargs dnf5 install -y
 
 # Install topgrade
 pip install --prefix=/usr topgrade
-
-# Installed via flatpak
-rpm-ostree override remove firefox firefox-langpacks
 
 #### os-release
 
@@ -104,3 +103,25 @@ systemctl enable -f --global syncthing.service
 
 systemctl enable azure-system-setup.service
 systemctl enable azure-groups.service
+
+dnf5 -y copr disable yalter/niri
+
+# Add Staging repo
+dnf5 -y copr disable ublue-os/staging
+
+# Add Bling repo
+dnf5 -y copr disable ublue-os/bling
+
+dnf5 -y copr disable ganto/lxc4
+
+dnf5 -y copr disable che/nerd-fonts
+
+dnf5 -y copr disable pgdev/ghostty
+
+dnf5 -y copr disable alternateved/bleeding-emacs
+
+dnf5 -y copr disable ulysg/xwayland-satellite
+
+curl https://downloads.1password.com/linux/keys/1password.asc | tee /etc/pki/rpm-gpg/1password.gpg
+
+dnf5 -y copr disable gmaglione/podman-bootc

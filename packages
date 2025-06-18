@@ -47,6 +47,7 @@ docker-compose-plugin
 # incus
 # incus-agent
 podman
+podman-bootc
 podman-docker
 podman-tui
 devpod
