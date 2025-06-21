@@ -45,7 +45,8 @@ pip install --prefix=/usr topgrade
 
 #### os-release
 
-echo "VARIANT=Azure" && echo "VARIANT_ID=com.babariviere.azure" >> /usr/lib/os-release
+echo "VARIANT=\"Azure\"" >> /usr/lib/os-release
+echo "VARIANT_ID=\"com.babariviere.azure\"" >> /usr/lib/os-release
 
 #### Quadlets
 
