@@ -50,7 +50,7 @@ podman
 podman-bootc
 podman-docker
 podman-tui
-devpod
+# devpod
 
 # # emulation
 # libvirt
